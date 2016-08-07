@@ -303,5 +303,8 @@ PRODUCT_COPY_FILES += \
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
 
-PRODUCT_PACKAGES += /
-    OTAUpdates
+# OTA Updates
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.ota.romname=rr-oneplus3 \
+	ro.ota.version=$(shell date +%F | sed s@-@@g) \
+	ro.ota.manifest=https://raw.githubusercontent.com/sunsettrack4/rr-ota/master/op3.xml
